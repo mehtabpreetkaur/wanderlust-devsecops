@@ -17,6 +17,10 @@ spec:
       containers:
       - name: mongodb-test
         image: mongo:4.0.8
+        resources:
+          requests:
+            memory: "128Mi"
+            cpu: "500m"
         env:
           - name: MONGO_INITDB_ROOT_USERNAME_FILE
             value: /etc/k8-test/admin/MONGO_ROOT_USERNAME
