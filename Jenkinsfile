@@ -9,7 +9,7 @@ pipeline {
         stage("Checkout Stage") {
             steps {
                 script {
-                    git branch: 'gcp-devsecops', url: 'https://github.com/amitmaurya07/wanderlust-devsecops.git'
+                    git branch: 'gcp-devsecops', url: 'https://github.com/mehtabpreetkaur/wanderlust-devsecops.git'
                 }
             }
         }
@@ -46,7 +46,7 @@ pipeline {
 
         stage("Deploy to GKE Cluster") {
             steps {
-                withKubeConfig(caCertificate: '', clusterName: 'gke_devsecops-3-tier_us-central1_wanderlust-devsecops', contextName: '', credentialsId: 'k8s-secret', namespace: 'devsecops', restrictKubeConfigAccess: false, serverUrl: 'https://34.56.143.43') {
+                withKubeConfig(caCertificate: '', clusterName: 'gke_devsecops-3-tier-458810_us-central1_wanderlust-devsecops', contextName: 'gke_devsecops-3-tier-458810_us-central1_wanderlust-devsecops', credentialsId: 'k8s-secret', namespace: 'gke_devsecops-3-tier-458810_us-central1_wanderlust-devsecops', restrictKubeConfigAccess: false, serverUrl: 'https://35.222.90.159') {
                     script {
                         sh "kubectl apply -f ./kubernetes -n devsecops"
 
