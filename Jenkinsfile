@@ -46,7 +46,7 @@ pipeline {
 
         stage("Deploy to GKE Cluster") {
             steps {
-                withKubeConfig(caCertificate: '', clusterName: 'gke_devsecops-3-tier-458810_us-central1_wanderlust-devsecops', contextName: 'gke_devsecops-3-tier-458810_us-central1_wanderlust-devsecops', credentialsId: 'k8s-secret', namespace: 'gke_devsecops-3-tier-458810_us-central1_wanderlust-devsecops', restrictKubeConfigAccess: false, serverUrl: 'https://35.222.90.159') {
+                withKubeConfig(caCertificate: '', clusterName: 'gke_devsecops-3-tier-458810_us-central1_wanderlust-devsecops', contextName: 'gke_devsecops-3-tier-458810_us-central1_wanderlust-devsecops', credentialsId: 'k8s-secret', namespace: 'gke_devsecops-3-tier-458810_us-central1_wanderlust-devsecops', restrictKubeConfigAccess: false, serverUrl: 'https://34.135.35.175') {
                     script {
                         sh "kubectl apply -f ./kubernetes -n devsecops"
 
